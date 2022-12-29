@@ -1,5 +1,7 @@
 
-## Persist Printer and Camera Connections in Octoprint Across Reboots
+# Persist Printer and Camera Connections in Octoprint Across Reboots
+
+## Challenges in Managing Printer and Camera Connections Across Reboots
 
 **Background**
 
