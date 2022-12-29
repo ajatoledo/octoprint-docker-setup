@@ -1,0 +1,11 @@
+# printer 5 - prusa mk3s - mosquito
+KERNEL=="ttyACM*", ATTRS{serial}=="SERIAL_XXXXXXXXXX", SYMLINK+="prusa_5"
+
+# camera 5
+KERNEL=="video*", ATTR{index}=="0", ATTRS{serial}=="SERIAL_XXXXXXXXXX", SYMLINK+="prusa_camera_5"
+
+# printer 6 - prusa mini
+KERNEL=="ttyACM*", ATTRS{serial}=="SERIAL_XXXXXXXXXX", SYMLINK+="prusa_6"
+
+# camera 6
+KERNEL=="video*", ATTR{index}=="0", ATTRS{serial}=="SERIAL_XXXXXXXXXX", SYMLINK+="prusa_camera_6"
