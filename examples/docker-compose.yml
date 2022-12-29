@@ -1,0 +1,51 @@
+# -------------------------------------------------------------------------------- Notes --------------------------------------------------------------------------------
+# Device mappings below in `devices:` use custom udev rules to create symlinks for my printers and webcams
+# Information regarding how to create udev rules can be reviewed here: https://github.com/ajatoledo/octoprint-docker-setup/blob/main/camera-setup.md#create-usb-symlink-mappings
+# For additional information regarding docker compose files, review: https://docs.docker.com/compose/gettingstarted/
+# -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+version: '3'
+
+services:
+
+  octoprint1:
+    image: octoprint/octoprint:1.8.0
+    restart: unless-stopped
+    container_name: printer5
+    
+    # If you would like to access the octoprint container on a port other than 6001, update the value below
+    ports:
+      - 6001:80
+    devices:
+      - /dev/prusa_5:/dev/ttyACM0
+      - /dev/prusa_camera_5:/dev/prusa_camera_5
+    
+    # If you do not want to pass a local volume to the container, remove/comment out the volumes item and its list items
+    volumes:
+      # Update the volume path below to match your needs
+      - /home/USERNAME/Development/10-Docker/10-Data/octoprint/printer5:/octoprint
+    
+    environment:
+      - ENABLE_MJPG_STREAMER=true
+      - CAMERA_DEV=/dev/prusa_camera_5
+
+  octoprint2:
+    image: octoprint/octoprint:1.8.0
+    restart: unless-stopped
+    container_name: printer6
+    
+    # If you would like to access the octoprint container on a port other than 6002, update the value below
+    ports:
+      - 6002:80
+    devices:
+      - /dev/prusa_6:/dev/ttyACM0
+      - /dev/prusa_camera_6:/dev/prusa_camera_6
+    
+    # If you do not want to pass a local volume to the container, remove/comment out the volumes item and its list items
+    volumes:
+      # Update the volume path below to match your needs
+      - /home/USERNAME/Development/10-Docker/10-Data/octoprint/printer6:/octoprint
+    
+    environment:
+     - ENABLE_MJPG_STREAMER=true
+     - CAMERA_DEV=/dev/prusa_camera_6
