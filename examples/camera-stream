@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# since there are multiple cameras, there will be multiple inputs for mjpg-streamer
+# the feeds are then output in the order they were input and start at zero
+
+# so, in the example below:
+
+mjpg-streamer -i "input_uvc.so -d /dev/prusa_camera_5 -r 1280x720" -i "input_uvc.so -d /dev/prusa_camera_6 -r 1280x720" -o "output_http.so -p 8081"
+
+# argument listing for clarity, don't need to update and can delete
+
+# Camera_0: `/dev/prusa_camera_5`
+# Camera_1: `/dev/prusa_camera_6`
+# Resolution: 1280x720
+# Web Server: output_http.so
+# Port: 8081
+
+# camera_5 stream: http://localhost:8081/?action=stream_0
+# camera_6 stream: http://localhost:8081/?action=stream_1
+
+# reference:
+# https://github.com/jacksonliam/mjpg-streamer/issues/186
+# https://github.com/jacksonliam/mjpg-streamer/blob/master/mjpg-streamer-experimental/plugins/output_http/README.md
