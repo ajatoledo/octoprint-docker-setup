@@ -1,8 +1,8 @@
-# -------------------------------------------------------------------------------- Notes --------------------------------------------------------------------------------
+# ------------------------------------------ Notes ------------------------------------------
 # Device mappings below in `devices:` use custom udev rules to create symlinks for my printers and webcams
 # Information regarding how to create udev rules can be reviewed here: https://github.com/ajatoledo/octoprint-docker-setup/blob/main/camera-setup.md#create-usb-symlink-mappings
 # For additional information regarding docker compose files, review: https://docs.docker.com/compose/gettingstarted/
-# -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------
 
 version: '3'
 
