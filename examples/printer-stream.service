@@ -1,0 +1,11 @@
+[Unit]
+Description=mjpg-streamer camera feeds
+
+[Service]
+Restart=always
+RestartSec=1
+ExecStart=/usr/local/bin/camera-stream
+ExecStop=killall mjpg_streamer
+
+[Install]
+WantedBy=multi-user.target
