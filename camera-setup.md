@@ -449,3 +449,10 @@ WantedBy=multi-user.target
     
 6. The `printer-stream.service` process will not persist across reboots, but setting it to start at boot is easy; enter `sudo systemctl enable printer-stream.service`
 
+## FAQ
+
+**I don't see all of my cameras, what's up?**
+
+While the steps above don't account for all specific system setups, presuming you tested the `mjpg-streamer` script above and it started, the issue may be with the [PCIe bandwidth available on your system](https://obsproject.com/forum/threads/2-usb-cameras-work-but-not-3.124695/post-465302). 
+
+For example, I initially plugged four cameras into a single, powered USB 3.0 hub and could not get all of my cameras to appear. However, I could see the streams after I moved two cameras to different USB ports. 
