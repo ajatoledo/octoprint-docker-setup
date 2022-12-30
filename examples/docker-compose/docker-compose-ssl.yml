@@ -7,6 +7,10 @@
 
 # Use this docker compose file if you intend to use a reverse proxy
 
+# note: If using a reverse proxy with Octoprint, it may be necessary to allow CORS; 
+# the option is available as a checkbox API > CORS enabled and working fine.
+# https://community.octoprint.org/t/cant-access-through-nginx-proxy-server/22819/42
+
 version: '3'
 
 services:
