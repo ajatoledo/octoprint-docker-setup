@@ -5,12 +5,14 @@
 # For additional information regarding docker compose files, review: https://docs.docker.com/compose/gettingstarted/
 # -------------------------------------------------------------------------------------------
 
+# Use this docker compose file if you do NOT intend to use a reverse proxy
+
 version: '3'
 
 services:
 
   octoprint1:
-    image: octoprint/octoprint:1.8.0
+    image: octoprint/octoprint:latest
     restart: unless-stopped
     container_name: printer5
     
@@ -19,19 +21,18 @@ services:
       - 6001:80
     devices:
       - /dev/prusa_5:/dev/ttyACM0
-      - /dev/prusa_camera_5:/dev/prusa_camera_5
+      - /dev/prusa_camera_5:/dev/video0
     
     # If you do not want to pass a local volume to the container, remove/comment out the volumes item and its list items
     volumes:
       # Update the volume path below to match your needs
       - /home/USERNAME/Development/10-Docker/10-Data/octoprint/printer5:/octoprint
-    
+      
     environment:
       - ENABLE_MJPG_STREAMER=true
-      - CAMERA_DEV=/dev/prusa_camera_5
 
   octoprint2:
-    image: octoprint/octoprint:1.8.0
+    image: octoprint/octoprint:latest
     restart: unless-stopped
     container_name: printer6
     
@@ -40,13 +41,12 @@ services:
       - 6002:80
     devices:
       - /dev/prusa_6:/dev/ttyACM0
-      - /dev/prusa_camera_6:/dev/prusa_camera_6
+      - /dev/prusa_camera_6:/dev/video0
     
     # If you do not want to pass a local volume to the container, remove/comment out the volumes item and its list items
     volumes:
       # Update the volume path below to match your needs
       - /home/USERNAME/Development/10-Docker/10-Data/octoprint/printer6:/octoprint
-    
+        
     environment:
      - ENABLE_MJPG_STREAMER=true
-     - CAMERA_DEV=/dev/prusa_camera_6

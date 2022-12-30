@@ -1,0 +1,75 @@
+# ------------------------------------------ Notes ------------------------------------------
+# Device mappings below in `devices:` use custom udev rules to create symlinks for my printers and webcams
+# Information regarding how to create udev rules can be reviewed here: 
+#   https://github.com/ajatoledo/octoprint-docker-setup/blob/main/camera-setup.md#create-usb-symlink-mappings
+# For additional information regarding docker compose files, review: https://docs.docker.com/compose/gettingstarted/
+# -------------------------------------------------------------------------------------------
+
+# Use this docker compose file if you intend to use a reverse proxy
+
+version: '3'
+
+services:
+
+  octoprint1:
+    image: octoprint/octoprint:latest
+    restart: unless-stopped
+    container_name: printer5
+    
+    # If you would like to access the octoprint container on a port other than 6001, update the value below
+    ports:
+      - 6001:443
+    devices:
+      - /dev/prusa_5:/dev/ttyACM0
+      - /dev/prusa_camera_5:/dev/video0
+    
+    # If you do not want to pass a local volume to the container, remove/comment out the volumes item and its list items
+    volumes:
+      # Update the volume path below to match your needs
+      - /home/USERNAME/Development/10-Docker/10-Data/octoprint/printer5:/octoprint
+      
+      # I use a separate reverse proxy server in my LAN, so I needed to add to add the two lines below to enable the proxy to work
+      # If you plan to use Haproxy provided by Octorprint or will not use a reverse proxy, you can skip the two volumes below
+      
+      # There is an example config provided here: https://github.com/ajatoledo/octoprint-docker-setup/blob/main/examples/haproxy.cfg
+      # There is a more detailed explainer provided here: https://community.octoprint.org/t/reverse-proxy-configuration-examples/1107
+      - /home/USERNAME/Development/10-Docker/00-Configuration/octoprint-config/haproxy.cfg:/etc/haproxy/haproxy.cfg
+      
+      # An SSL certificate is needed for https redirections; follow the steps in the link below to generate a self-signed certificate
+      # https://community.octoprint.org/t/setup-a-new-self-signed-ssl-certificate-on-octoprint-enable-https/30256
+      - /home/USERNAME/Development/10-Docker/00-Configuration/octoprint-config/snakeoil.pem:/etc/ssl/snakeoil.pem
+    
+    environment:
+      - ENABLE_MJPG_STREAMER=true
+
+  octoprint2:
+    image: octoprint/octoprint:latest
+    restart: unless-stopped
+    container_name: printer6
+    
+    # If you would like to access the octoprint container on a port other than 6002, update the value below
+    ports:
+      - 6002:443
+    devices:
+      - /dev/prusa_6:/dev/ttyACM0
+      - /dev/prusa_camera_6:/dev/video0
+    
+    # If you do not want to pass a local volume to the container, remove/comment out the volumes item and its list items
+    volumes:
+      # Update the volume path below to match your needs
+      - /home/USERNAME/Development/10-Docker/10-Data/octoprint/printer6:/octoprint
+      
+      # I use a separate reverse proxy server in my LAN, so I needed to add to add the two lines below to enable the proxy to work
+      # If you plan to use Haproxy provided by Octorprint or will not use a reverse proxy, you can skip the two volumes below
+      
+      # There is an example config provided here: https://github.com/ajatoledo/octoprint-docker-setup/blob/main/examples/haproxy.cfg
+      # There is a more detailed explainer provided here: https://community.octoprint.org/t/reverse-proxy-configuration-examples/1107
+      - /home/USERNAME/Development/10-Docker/00-Configuration/octoprint-config/haproxy.cfg:/etc/haproxy/haproxy.cfg
+      
+      # An SSL certificate is needed for https redirections; follow the steps in the link below to generate a self-signed certificate
+      # https://community.octoprint.org/t/setup-a-new-self-signed-ssl-certificate-on-octoprint-enable-https/30256
+      - /home/USERNAME/Development/10-Docker/00-Configuration/octoprint-config/snakeoil.pem:/etc/ssl/snakeoil.pem
+        
+    environment:
+     - ENABLE_MJPG_STREAMER=true
+
