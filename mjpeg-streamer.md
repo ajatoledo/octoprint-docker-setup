@@ -1,5 +1,7 @@
 # `mjpg-streamer` Outside of Octoprint
 
+⚠️ **WARNING**: `mjpg-streamer` should not be used on untrusted networks! By default, anyone with access to the network that `mjpg-streamer` is running on will be able to access it
+
 ## Running `mjpg-streamer` Outside of Octoprint
 
 Users may choose to run `mjpg-streamer` camera stream outside of Octoprint, but working with `mjpg-streamer` isn't always *easy*. 
