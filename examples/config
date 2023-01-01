@@ -1,0 +1,3 @@
+INPUTOPTS="-i "input_uvc.so -d /dev/video0 -r 1280x720" -i "input_uvc.so -d /dev/video2 -r 1280x720" -o "output_http.so"
+PORT="-p 8081"
+DAEMON="true"
