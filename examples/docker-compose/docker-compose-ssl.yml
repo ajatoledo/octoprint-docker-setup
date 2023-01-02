@@ -15,7 +15,7 @@ version: '3'
 
 services:
 
-  octoprint1:
+  octoprint5:
     image: octoprint/octoprint:latest
     restart: unless-stopped
     container_name: printer5
@@ -45,8 +45,9 @@ services:
     
     environment:
       - ENABLE_MJPG_STREAMER=true
-
-  octoprint2:
+      - MJPG_STREAMER_INPUT=-n -r 1280x720 -f 30
+      
+  octoprint6:
     image: octoprint/octoprint:latest
     restart: unless-stopped
     container_name: printer6
@@ -76,4 +77,4 @@ services:
         
     environment:
      - ENABLE_MJPG_STREAMER=true
-
+     - MJPG_STREAMER_INPUT=-n -r 1280x720 -f 30
