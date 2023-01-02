@@ -28,13 +28,13 @@ Users can install `mjpg-streamer` using the directions provided on the [project'
 
 [**Snap Description**:](https://en.wikipedia.org/wiki/Snap_(software)) Snap is a software packaging and deployment system developed by Canonical for operating systems that use the Linux kernel and the systemd init system. The packages called snaps, and the tool for using them, snapd, work across a range of Linux distributions and allow upstream software developers to distribute their applications directly to users. Snaps are self-contained applications running in a sandbox with mediated access to the host system. 
     
-- [Installing `mjpg-streamer` using snapd]([### Snap Install](https://github.com/ajatoledo/octoprint-docker-setup/blob/main/mjpeg-streamer.md#snap-install)
+- [Install `mjpg-streamer` using snapd](#snap-install)
 
 ### Docker Overview
 
 [**Docker Description**:](https://docs.docker.com/get-started/overview/) Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly. With Docker, you can manage your infrastructure in the same ways you manage your applications. By taking advantage of Docker’s methodologies for shipping, testing, and deploying code quickly, you can significantly reduce the delay between writing code and running it in production.
 
-- [Installing `mjpg-streamer` using Docker]([### Docker Install](https://github.com/ajatoledo/octoprint-docker-setup/blob/main/mjpeg-streamer.md#docker-install)
+- [Install `mjpg-streamer` using Docker](#docker-install)
 
 ## Install `mjpg-streamer` via Snap Package
 
