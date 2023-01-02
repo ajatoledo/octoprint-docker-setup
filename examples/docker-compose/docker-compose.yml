@@ -51,4 +51,4 @@ services:
         
     environment:
      - ENABLE_MJPG_STREAMER=true
-      - MJPG_STREAMER_INPUT=-n -r 1280x720 -f 30
+     - MJPG_STREAMER_INPUT=-n -r 1280x720 -f 30
