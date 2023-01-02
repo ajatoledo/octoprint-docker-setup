@@ -14,6 +14,7 @@ From the [mjpg-streamer repository](https://github.com/jacksonliam/mjpg-streamer
     
     + Users interested in creating symlink mappings for devices should review [Persist Printer and Camera Connections in Octoprint Across Reboots](https://github.com/ajatoledo/octoprint-docker-setup/blob/main/udev-mapping.md#persist-printer-and-camera-connections-in-octoprint-across-reboots)
 
+    + The example scripts below were written using Bash; the scripts may need to be updated to run in different shells
 ---
 
 ⚠️ **WARNING**: `mjpg-streamer` should not be used on untrusted networks! By default, anyone with access to the network that `mjpg-streamer` is running on will be able to access it
