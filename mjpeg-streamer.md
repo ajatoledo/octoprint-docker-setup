@@ -64,10 +64,10 @@ The examples below outline how to open both a single camera stream and multiple 
 
 Run the following command to open a single camera stream: `sudo mjpg-streamer -i "input_uvc.so -d /dev/video0 -r 1280x720" -o "output_http.so -p 8081"`
 
-    + Camera: `/dev/video0`
-    + Resolution: 1280x720
-    + Web Server: output_http.so
-    + Port: 8081
+- Camera: `/dev/video0`
+- Resolution: 1280x720
+- Web Server: output_http.so
+- Port: 8081
 
 To view output, visit the following links
 
@@ -80,11 +80,11 @@ To view output, visit the following links
     
 Run the following command to open two camera streams: `mjpg-streamer -i "input_uvc.so -d /dev/video0 -r 1280x720" -i "input_uvc.so -d /dev/video2 -r 1280x720" -o "output_http.so -p 8081"`
 
-    + Camera_0: `/dev/video0`
-    + Camera_1: `/dev/video2`
-    + Resolution: 1280x720
-    + Web Server: output_http.so
-    + Port: 8081
+- Camera_0: `/dev/video0`
+- Camera_1: `/dev/video2`
+- Resolution: 1280x720
+- Web Server: output_http.so
+- Port: 8081
 
 *For multiple cameras, the feeds are output in the order they were input and starting at zero*
 
@@ -98,7 +98,7 @@ Run the following command to open two camera streams: `mjpg-streamer -i "input_u
 
 ### Start Camera Streams on Boot
 
-Users can start camera stream(s) at boot by creating a [`systemd`](### `systemd` Service) or [`snapd`](### `snapd` Service) service; steps for each are outlined below. To avoid device conflicts, users should only use one service type
+Users can start camera stream(s) at boot by creating a [`systemd`](#-`systemd`-Service) or [`snapd`](#-`snapd`-Service) service; steps for each are outlined below. To avoid device conflicts, users should only use one service type
 
 #### `systemd` Service
 
@@ -116,7 +116,8 @@ Users can start camera stream(s) at boot by creating a [`systemd`](### `systemd`
     
     # so, in the example below:
     
-    mjpg-streamer -i "input_uvc.so -d /dev/video0 -r 1280x720" -i "input_uvc.so -d /dev/video2 -r 1280x720" -o "output_http.so -p 8081"
+    mjpg-streamer -i "input_uvc.so -d /dev/video0 -r 1280x720" \
+        -i "input_uvc.so -d /dev/video2 -r 1280x720" -o "output_http.so -p 8081"
     
     # argument listing for clarity, don't need to update and can delete
     
@@ -190,7 +191,8 @@ Users can start camera stream(s) at boot by creating a [`systemd`](### `systemd`
 2. Paste the example script provided below into the editor
 
     ```
-    INPUTOPTS="-i "input_uvc.so -d /dev/video0 -r 1280x720" -i "input_uvc.so -d /dev/video2 -r 1280x720" -o "output_http.so"
+    INPUTOPTS="-i "input_uvc.so -d /dev/video0 -r 1280x720" \
+            -i "input_uvc.so -d /dev/video2 -r 1280x720" -o "output_http.so"
     PORT="-p 8081"
     DAEMON="true"
     ```
