@@ -56,15 +56,13 @@ Installation is easy; run the two commands below
     + [Snap Source Page](https://snapcraft.io/mjpg-streamer)
     + [Source Page](https://github.com/ogra1/mjpg-streamer)
 
-- Log Out and Log Back In: after installing the snap, users needed to start a new shell session to enable the `mjpg-streamer` commands
-
 ### Start Camera Stream(s)
 
 The examples below outline how to open both a single camera stream and multiple camera streams using `mjpg-streamer` 
 
 #### Open A Stream For A Single Camera
 
-Run the following command to open a single camera stream: `sudo mjpg-streamer -i "input_uvc.so -d /dev/video0 -r 1280x720" -o "output_http.so -p 8081"`
+Run the following command to open a single camera stream: `mjpg-streamer -i "input_uvc.so -d /dev/video0 -r 1280x720" -o "output_http.so -p 8081"`
 
 - Camera: `/dev/video0`
 - Resolution: 1280x720
